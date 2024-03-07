@@ -49,7 +49,7 @@ const circleStyle = (delay: number): SerializedStyles => css`
   animation: ${drawCircle} 0.6s ease-in-out alternate infinite both ${delay}s;
 `
 
-interface ConnectionIconParams {
+interface ConnectionIconProps {
   animation: boolean
   size: number
 }
@@ -57,7 +57,7 @@ interface ConnectionIconParams {
 export const ConnectionIcon = ({
   animation = true,
   size = 64
-}: ConnectionIconParams): React.JSX.Element => {
+}: ConnectionIconProps): React.JSX.Element => {
   return (
     <div>
       <svg
