@@ -64,6 +64,9 @@ const tabStyle = css`
 `
 
 const tabContentStyle = (isActive: boolean): SerializedStyles => css`
+  * {
+    max-width: 100%;
+  }
   opacity: ${isActive ? 1 : 0};
   transform: translateX(${isActive ? '0px' : '-200px'});
   transition:
