@@ -13,6 +13,7 @@ type Story = StoryObj<typeof Heading2>
 
 export const Primary: Story = {
   args: {
-    content: 'Heading2'
+    content: 'Heading2',
+    size: '1.5rem'
   }
 }

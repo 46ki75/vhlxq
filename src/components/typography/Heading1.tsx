@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { memo, useEffect, useRef, useState } from 'react'
-import { css, keyframes } from '@emotion/react'
+import { type SerializedStyles, css, keyframes } from '@emotion/react'
 import { useInView } from 'framer-motion'
 
-const headingStyle = css`
+const headingStyle = (size: string | number): SerializedStyles => css`
   font-family: sans-serif;
   position: relative;
   display: block;
@@ -15,7 +15,8 @@ const headingStyle = css`
   border-color: #b38a71;
   font-weight: bold;
   color: #4b3737;
-  font-size: 26px;
+
+  font-size: ${typeof size === 'string' ? size : size + 'px'};
 
   &::before,
   &::after {
@@ -76,24 +77,27 @@ const textStyle = css`
 
 interface HeadingProps {
   content: string
+  size?: number | string
 }
 
-export const Heading1 = memo(({ content }: HeadingProps): React.JSX.Element => {
-  const ref = useRef(null)
-  const isInView = useInView(ref)
-  const [animationKey, setAnimationKey] = useState(0)
+export const Heading1 = memo(
+  ({ content, size = '1.5rem' }: HeadingProps): React.JSX.Element => {
+    const ref = useRef(null)
+    const isInView = useInView(ref)
+    const [animationKey, setAnimationKey] = useState(0)
 
-  useEffect(() => {
-    setAnimationKey((prevKey) => prevKey + 1)
-  }, [isInView])
+    useEffect(() => {
+      setAnimationKey((prevKey) => prevKey + 1)
+    }, [isInView])
 
-  return (
-    <h1 css={headingStyle} ref={ref}>
-      <span css={textStyle} key={animationKey}>
-        {content}
-      </span>
-    </h1>
-  )
-})
+    return (
+      <h1 css={headingStyle(size)} ref={ref} id={content}>
+        <span css={textStyle} key={animationKey}>
+          {content}
+        </span>
+      </h1>
+    )
+  }
+)
 
 Heading1.displayName = 'Heading1'

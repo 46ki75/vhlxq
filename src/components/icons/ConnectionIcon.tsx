@@ -59,34 +59,32 @@ export const ConnectionIcon = ({
   size = 64
 }: ConnectionIconProps): React.JSX.Element => {
   return (
-    <div>
-      <svg
-        viewBox='0 0 100 100'
-        preserveAspectRatio='xMidYMid meet'
-        css={svgStyle(size)}
-      >
-        <polyline
-          css={polylineStyle(animation)}
-          points='8,50 20,50 25,30 35,70 40,10, 50,90 55,40 60,60 65,45 70,55 80,50 92,50'
-          fill='transparent'
-          stroke='black'
-          strokeWidth='2'
-        />
-        <circle
-          cx={4}
-          cy={50}
-          r={4}
-          fill={'black'}
-          css={animation && circleStyle(0)}
-        />
-        <circle
-          cx={96}
-          cy={50}
-          r={4}
-          fill={'black'}
-          css={animation && circleStyle(0.6)}
-        />
-      </svg>
-    </div>
+    <svg
+      viewBox='0 0 100 100'
+      preserveAspectRatio='xMidYMid meet'
+      css={svgStyle(size)}
+    >
+      <polyline
+        css={polylineStyle(animation)}
+        points='8,50 20,50 25,30 35,70 40,10, 50,90 55,40 60,60 65,45 70,55 80,50 92,50'
+        fill='transparent'
+        stroke='black'
+        strokeWidth='2'
+      />
+      <circle
+        cx={4}
+        cy={50}
+        r={4}
+        fill={'black'}
+        css={animation && circleStyle(0)}
+      />
+      <circle
+        cx={96}
+        cy={50}
+        r={4}
+        fill={'black'}
+        css={animation && circleStyle(0.6)}
+      />
+    </svg>
   )
 }

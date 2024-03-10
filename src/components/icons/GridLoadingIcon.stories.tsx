@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ConnectionIcon } from './ConnectionIcon'
+import { GridLoadingIcon } from './GridLoadingIcon'
 
-const meta: Meta<typeof ConnectionIcon> = {
-  component: ConnectionIcon,
-  title: 'Icons/ConnectionIcon',
+const meta: Meta<typeof GridLoadingIcon> = {
+  component: GridLoadingIcon,
+  title: 'Icons/GridLoadingIcon',
   argTypes: {
     animation: { options: 'toggle' }
   }
 }
 
 export default meta
-type Story = StoryObj<typeof ConnectionIcon>
+type Story = StoryObj<typeof GridLoadingIcon>
 
 export const Primary: Story = {
   args: {
