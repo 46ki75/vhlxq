@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+'use client'
 
 import { type SerializedStyles, css, keyframes } from '@emotion/react'
 import { useMotionValueEvent, useScroll } from 'framer-motion'

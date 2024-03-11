@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+'use client'
 
 import React, { memo } from 'react'
 import { css, keyframes } from '@emotion/react'

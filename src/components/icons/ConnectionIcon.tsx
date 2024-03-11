@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+'use client'
 
 import React from 'react'
 import { type SerializedStyles, css, keyframes } from '@emotion/react'

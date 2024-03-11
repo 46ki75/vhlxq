@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+'use client'
 import React, {
   type ReactElement,
   useState,
