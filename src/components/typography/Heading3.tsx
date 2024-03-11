@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { memo } from 'react'
 import { type SerializedStyles, css, keyframes } from '@emotion/react'
 import { FragmentIdentifier } from './FragmentIdentifier'
-import { useInView } from 'framer-motion'
+import { AnimateOnView } from '../utils/AnimateOnView'
 
 const headingStyle = (size: string | number): SerializedStyles => css`
   margin: 0;
@@ -104,29 +104,21 @@ interface Heading3Props {
 
 export const Heading3 = memo(
   ({ content, size = '1.25rem' }: Heading3Props): React.JSX.Element => {
-    const ref = useRef(null)
-    const isInView = useInView(ref)
-    const [animationKey, setAnimationKey] = useState(0)
-
-    useEffect(() => {
-      setAnimationKey((prevKey) => prevKey + 1)
-    }, [isInView])
-
     return (
-      <>
+      <AnimateOnView>
         <div css={upperlineContainerStyle}>
           <div></div>
           <div></div>
           <div></div>
         </div>
-        <h3 css={headingStyle(size)} ref={ref} id={content}>
-          <span key={animationKey}>{content}</span>
+        <h3 css={headingStyle(size)} id={content}>
+          <span>{content}</span>
         </h3>
-        <div css={underlineContainerStyle} key={animationKey}>
+        <div css={underlineContainerStyle}>
           <div></div>
         </div>
         <FragmentIdentifier content={content} />
-      </>
+      </AnimateOnView>
     )
   }
 )

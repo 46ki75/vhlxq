@@ -8,6 +8,27 @@ interface AnimateOnViewProps {
   children: React.ReactNode
 }
 
+/**
+ * When a component passed to children re-renders every time it enters the viewport,
+ * this causes components with animations set by keyframes to replay the animation
+ * each time they enter the viewport.
+ *
+ * ## Usage:
+ *
+ * ```tsx
+ * import React from 'react'
+ * import { AnimateOnView } from './AnimateOnView'
+ *
+ * export const MyComponent = (): React.JSX.Element => {
+ *   return (
+ *     <AnimateOnView>
+ *       <div>Animation</div>
+ *     </AnimateOnView>
+ *   )
+ * }
+ * ```
+ *
+ */
 export const AnimateOnView = ({
   children
 }: AnimateOnViewProps): React.JSX.Element => {
@@ -20,8 +41,10 @@ export const AnimateOnView = ({
   }, [isInView])
 
   return (
-    <div ref={ref}>
-      <div key={animationKey}>{children}</div>
+    <div style={{ display: 'inline' }} ref={ref}>
+      <div style={{ display: 'inline' }} key={animationKey}>
+        {children}
+      </div>
     </div>
   )
 }

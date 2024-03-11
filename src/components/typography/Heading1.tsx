@@ -1,9 +1,9 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { memo } from 'react'
 import { type SerializedStyles, css, keyframes } from '@emotion/react'
-import { useInView } from 'framer-motion'
+import { AnimateOnView } from '../utils/AnimateOnView'
 
 const headingStyle = (size: string | number): SerializedStyles => css`
   font-family: sans-serif;
@@ -83,20 +83,12 @@ interface HeadingProps {
 
 export const Heading1 = memo(
   ({ content, size = '1.5rem' }: HeadingProps): React.JSX.Element => {
-    const ref = useRef(null)
-    const isInView = useInView(ref)
-    const [animationKey, setAnimationKey] = useState(0)
-
-    useEffect(() => {
-      setAnimationKey((prevKey) => prevKey + 1)
-    }, [isInView])
-
     return (
-      <h1 css={headingStyle(size)} ref={ref} id={content}>
-        <span css={textStyle} key={animationKey}>
-          {content}
-        </span>
-      </h1>
+      <AnimateOnView>
+        <h1 css={headingStyle(size)} id={content}>
+          <span css={textStyle}>{content}</span>
+        </h1>
+      </AnimateOnView>
     )
   }
 )

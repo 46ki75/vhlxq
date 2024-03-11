@@ -17,3 +17,13 @@ export const Primary: Story = {
     size: '1.5rem'
   }
 }
+
+export const Scroll: Story = {
+  render: () => (
+    <>
+      {Array.from({ length: 30 }).map((_, i) => (
+        <Heading2 content={'Heading2 - ' + i.toString()} key={i} />
+      ))}
+    </>
+  )
+}

@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 'use client'
 
-import React, { memo, useEffect, useRef, useState } from 'react'
+import React, { memo } from 'react'
 import { type SerializedStyles, css, keyframes } from '@emotion/react'
-import { useInView } from 'framer-motion'
 import { FragmentIdentifier } from './FragmentIdentifier'
+import { AnimateOnView } from '../utils/AnimateOnView'
 
 const headingStyle = css`
   width: 100%;
@@ -50,6 +50,7 @@ const textStyle = (size: string | number): SerializedStyles => css`
   font-family: sans-serif;
   color: rgba(255, 255, 255, 0.9);
 
+  box-sizing: border-box;
   width: 100%;
   padding: 0.5rem;
 
@@ -63,7 +64,7 @@ const textStyle = (size: string | number): SerializedStyles => css`
   background-size: 300% 100%;
 
   animation-name: ${textAnimation};
-  animation-duration: 0.4s;
+  animation-duration: 0.6s;
   animation-direction: reverse;
 
   &::after {
@@ -71,7 +72,7 @@ const textStyle = (size: string | number): SerializedStyles => css`
     content: '';
     bottom: 0;
     left: 0;
-    width: calc(100% - 18px);
+    width: calc(100% - 2px);
     height: 1px;
     background-color: rgba(255, 255, 255, 1);
     border: solid 1px rgba(0, 0, 0, 0.8);
@@ -81,7 +82,7 @@ const textStyle = (size: string | number): SerializedStyles => css`
     position: absolute;
     content: '';
     top: 35%;
-    right: 20px;
+    right: 4px;
     width: 3px;
     height: 35%;
     background-color: rgba(255, 255, 255, 0.8);
@@ -100,22 +101,14 @@ interface HeadingProps {
 
 export const Heading2 = memo(
   ({ content, size = '1.375rem' }: HeadingProps): React.JSX.Element => {
-    const ref = useRef(null)
-    const isInView = useInView(ref)
-    const [animationKey, setAnimationKey] = useState(0)
-
-    useEffect(() => {
-      setAnimationKey((prevKey) => prevKey + 1)
-    }, [isInView])
-
     return (
       <>
-        <h2 css={headingStyle} ref={ref} id={content}>
-          <span css={textStyle(size)} key={animationKey}>
-            {content}
-          </span>
-        </h2>
-        <FragmentIdentifier content={content} />
+        <AnimateOnView>
+          <h2 css={headingStyle} id={content}>
+            <span css={textStyle(size)}>{content}</span>
+          </h2>
+          <FragmentIdentifier content={content} />
+        </AnimateOnView>
       </>
     )
   }
