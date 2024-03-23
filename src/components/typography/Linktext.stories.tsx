@@ -5,6 +5,7 @@ import { Linktext } from './Linktext'
 const meta: Meta<typeof Linktext> = {
   component: Linktext,
   title: 'Typography/Linktext',
+  tags: ['autodocs'],
   argTypes: {
     external: { options: 'toggle' }
   }

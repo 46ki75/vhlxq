@@ -35,7 +35,17 @@ const circleStyle = css`
 `
 
 interface InfoIconProps {
+  /**
+   * **optional?**
+   *
+   * The vertical and horizontal size of the icon.
+   */
   size?: number
+  /**
+   * **optional?**
+   *
+   * Color of the Icon.
+   */
   color?: string
 }
 

@@ -69,6 +69,14 @@ const arrowStyle = (index: number): SerializedStyles => css`
 `
 
 interface BreadcrumbProps {
+  /**
+   * **required!**
+   *
+   * An array of objects with keys for the URL path and display name label.
+   *
+   * - href: The URL path to navigate to.
+   * - label: The display name.
+   */
   links: Array<{
     href: string
     label: string

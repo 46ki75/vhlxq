@@ -5,6 +5,7 @@ import { Heading1 } from './Heading1'
 const meta: Meta<typeof Heading1> = {
   component: Heading1,
   title: 'Typography/Heading1',
+  tags: ['autodocs'],
   argTypes: {}
 }
 

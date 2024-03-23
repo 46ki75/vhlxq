@@ -94,7 +94,19 @@ const textStyle = (
 `
 
 interface PagetopProps {
+  /**
+   * **optional?**
+   *
+   * Whether to display the page top button or not. Essentially,
+   * this component automatically shows or hides based on the scroll position,
+   * but it can also be manually managed depending on the use case.
+   */
   isVisible?: boolean
+  /**
+   * **optional?**
+   *
+   * The position of the page top link. You can choose between the bottom right or bottom left.
+   */
   position?: 'right' | 'left'
 }
 

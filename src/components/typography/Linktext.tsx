@@ -55,7 +55,17 @@ const blinkStyle = css`
 `
 
 interface LinktextProps {
+  /**
+   * **required!**
+   *
+   * The URL of the destination after clicking.
+   */
   href: string
+  /**
+   * **optional?**
+   *
+   * When set to true, this prevents sending referrer information and opens in a new tab.
+   */
   external?: boolean
 }
 

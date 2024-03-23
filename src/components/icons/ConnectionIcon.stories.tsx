@@ -5,6 +5,7 @@ import { ConnectionIcon } from './ConnectionIcon'
 const meta: Meta<typeof ConnectionIcon> = {
   component: ConnectionIcon,
   title: 'Icons/ConnectionIcon',
+  tags: ['autodocs'],
   argTypes: {
     animation: { options: 'toggle' }
   }

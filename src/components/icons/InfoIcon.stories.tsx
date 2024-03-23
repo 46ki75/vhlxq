@@ -5,6 +5,7 @@ import { InfoIcon } from './InfoIcon'
 const meta: Meta<typeof InfoIcon> = {
   component: InfoIcon,
   title: 'Icons/InfoIcon',
+  tags: ['autodocs'],
   argTypes: {}
 }
 

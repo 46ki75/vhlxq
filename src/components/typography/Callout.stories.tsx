@@ -6,6 +6,7 @@ import { colors } from '../../colors'
 const meta: Meta<typeof Callout> = {
   component: Callout,
   title: 'Typography/Callout',
+  tags: ['autodocs'],
   argTypes: {
     color: {
       control: 'radio',

@@ -38,6 +38,13 @@ const messageStyle = (isVisible: boolean): SerializedStyles => css`
 `
 
 interface FragmentIdentifierProps {
+  /**
+   * **required!**
+   *
+   * This becomes the fragment identifier that is appended to the end of the URL.
+   * For example, when set to `content={'Heading'}` at `example.com/path/to/page`,
+   * it becomes `https://example.com/path/to/page#Heading`.
+   */
   content: string
 }
 

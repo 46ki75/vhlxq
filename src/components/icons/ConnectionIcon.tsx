@@ -51,8 +51,18 @@ const circleStyle = (delay: number): SerializedStyles => css`
 `
 
 interface ConnectionIconProps {
-  animation: boolean
+  /**
+   * **optional?**
+   *
+   * The vertical and horizontal size of the icon.
+   */
   size: number
+  /**
+   * **optional?**
+   *
+   * Whether to perform animation or not.
+   */
+  animation?: boolean
 }
 
 export const ConnectionIcon = ({

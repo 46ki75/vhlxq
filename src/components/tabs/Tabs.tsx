@@ -84,6 +84,31 @@ const svgStyle = (height: number): SerializedStyles => css`
 `
 
 interface TabsProps {
+  /**
+   * **required!**
+   *
+   * Please use the `<Tab></Tab>` component specifically for this component in the children.
+   *
+   * ## Usage:
+   *
+   * ```tsx
+   * <Tabs>
+   *
+   *   <Tab label='JavaScript'>
+   *     Your Contents Here.
+   *   </Tab>
+   *
+   *   <Tab label='TypeScript'>
+   *     Your Contents Here.
+   *   </Tab>
+   *
+   *   <Tab label='Rust'>
+   *     Your Contents Here.
+   *   </Tab>
+   *
+   * </Tabs>
+   * ```
+   */
   children: Array<ReactElement<TabProps>> | ReactElement<TabProps>
 }
 
@@ -159,7 +184,24 @@ export const Tabs = memo(({ children }: TabsProps): React.JSX.Element => {
 Tabs.displayName = 'Tabs'
 
 interface TabProps {
+  /**
+   * **required!**
+   *
+   * Used as the display name for the tab.
+   */
   label: string
+
+  /**
+   * **required!**
+   *
+   * Place the content inside a tab. Please encircle any content with the Tab tag.
+   *
+   * ```tsx
+   * <Tab label='JavaScript'>
+   *   Your Contents Here.
+   * </Tab>
+   * ```
+   */
   children: React.ReactNode
 }
 

@@ -5,6 +5,7 @@ import { GridLoadingIcon } from './GridLoadingIcon'
 const meta: Meta<typeof GridLoadingIcon> = {
   component: GridLoadingIcon,
   title: 'Icons/GridLoadingIcon',
+  tags: ['autodocs'],
   argTypes: {
     animation: { options: 'toggle' }
   }

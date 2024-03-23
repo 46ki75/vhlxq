@@ -5,6 +5,7 @@ import { Breadcrumb } from './Breadcrumb'
 const meta: Meta<typeof Breadcrumb> = {
   component: Breadcrumb,
   title: 'Navigation/Breadcrumb',
+  tags: ['autodocs'],
   argTypes: {}
 }
 
@@ -16,6 +17,19 @@ export const Primary: Story = {
     links: [
       { href: '', label: 'Home' },
       { href: '', label: 'Blog' },
+      { href: '', label: 'Article' }
+    ]
+  }
+}
+
+export const Deep: Story = {
+  args: {
+    links: [
+      { href: '', label: 'Home' },
+      { href: '', label: 'Blog' },
+      { href: '', label: 'Category' },
+      { href: '', label: 'Diary' },
+      { href: '', label: 'Archived' },
       { href: '', label: 'Article' }
     ]
   }

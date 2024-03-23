@@ -5,11 +5,11 @@ import { Pagetop } from './Pagetop'
 const meta: Meta<typeof Pagetop> = {
   component: Pagetop,
   title: 'Navigation/Pagetop',
+  tags: ['autodocs'],
   argTypes: {
     position: {
       control: 'radio',
       options: ['right', 'left'],
-      description: 'Sets the position of the Pagetop button',
       defaultValue: 'right',
       table: {
         type: { summary: 'right | left' },

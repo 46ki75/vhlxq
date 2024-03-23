@@ -5,6 +5,7 @@ import { FragmentIdentifier } from './FragmentIdentifier'
 const meta: Meta<typeof FragmentIdentifier> = {
   component: FragmentIdentifier,
   title: 'Typography/FragmentIdentifier',
+  tags: ['autodocs'],
   argTypes: {}
 }
 
