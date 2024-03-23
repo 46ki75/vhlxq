@@ -170,12 +170,6 @@ const CodeBlockBase = ({
       <Global
         styles={css`
           @import url('https://fonts.googleapis.com/css2?family=Courier Prime');
-
-          * {
-            font-family: 'Courier Prime', monospace;
-            font-weight: 400;
-            font-style: normal;
-          }
         `}
       />
 
@@ -231,22 +225,33 @@ const CodeBlockBase = ({
           <FallBack theme={theme} />
         ) : (
           <Suspense fallback={<FallBack theme={theme} />}>
-            <SyntaxHighlighterAsync
-              language={language}
-              style={theme === 'light' ? oneLight : oneDark}
-              customStyle={{
-                margin: 0,
-                borderRadius: '0 0 0.25rem 0.25rem',
-                fontSize: '0.9rem'
-              }}
+            <div
               css={css`
-                font-family: 'Courier Prime', monospace;
-                font-weight: 400;
-                font-style: normal;
+                margin: 0 !important;
+
+                pre {
+                  margin: 0 !important;
+                  border-radius: 0 0 0.25rem 0.25rem !important;
+                }
+
+                * {
+                }
+
+                & * {
+                  font-family: 'Courier Prime';
+                  font-weight: 400;
+                  font-style: normal;
+                  font-size: 0.9rem;
+                }
               `}
             >
-              {code.trim()}
-            </SyntaxHighlighterAsync>
+              <SyntaxHighlighterAsync
+                language={language}
+                style={theme === 'light' ? oneLight : oneDark}
+              >
+                {code.trim()}
+              </SyntaxHighlighterAsync>
+            </div>
           </Suspense>
         )}
       </div>
