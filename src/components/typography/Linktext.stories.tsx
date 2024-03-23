@@ -16,13 +16,15 @@ type Story = StoryObj<typeof Linktext>
 
 export const Primary: Story = {
   args: {
-    href: 'https://example.com',
+    text: 'Link Text',
+    href: '',
     external: false
   }
 }
 
 export const External: Story = {
   args: {
+    text: 'Link Text (External)',
     href: 'https://example.com',
     external: true
   }

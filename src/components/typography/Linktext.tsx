@@ -17,7 +17,6 @@ const linkStyle = css`
   align-items: center;
   gap: 0.5rem;
 
-  width: min-content;
   padding: 0.125rem 0.25rem 0 0.25rem;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
 
@@ -28,6 +27,8 @@ const linkStyle = css`
   );
   background-size: 100% 200%;
   background-position: 0% 0%;
+
+  overflow-wrap: break-word;
 
   &:hover {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
@@ -45,6 +46,8 @@ const linkStyle = css`
 `
 
 const blinkStyle = css`
+  width: 16px;
+  height: 16px;
   animation-name: ${keyframes`    
     from{ opacity: 0.2 }
     to{ opacity: 1 }
@@ -58,6 +61,12 @@ interface LinktextProps {
   /**
    * **required!**
    *
+   * Text displayed in an HTML element.
+   */
+  text: string
+  /**
+   * **required!**
+   *
    * The URL of the destination after clicking.
    */
   href: string
@@ -65,12 +74,23 @@ interface LinktextProps {
    * **optional?**
    *
    * When set to true, this prevents sending referrer information and opens in a new tab.
+   * When this value is null, it automatically determines whether it is an internal or external link. However,
+   * by setting this value, you can also force external links to be treated as internal links.
    */
   external?: boolean
 }
 
 export const Linktext = memo(
-  ({ href, external }: LinktextProps): React.JSX.Element => {
+  ({ text, href, external }: LinktextProps): React.JSX.Element => {
+    if (external == null) {
+      const isExternalLink = (url: string): boolean => {
+        const link = new URL(url, window.location.origin)
+        return link.hostname !== window.location.hostname
+      }
+
+      external = isExternalLink(href)
+    }
+
     return (
       <a
         href={href}
@@ -78,7 +98,7 @@ export const Linktext = memo(
         rel={external ?? false ? 'external noreferrer noopener' : ''}
         css={linkStyle}
       >
-        <span>Linktext</span>
+        {text}
         {external ?? false ? (
           <svg
             css={blinkStyle}
