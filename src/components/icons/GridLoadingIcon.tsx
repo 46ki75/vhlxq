@@ -24,8 +24,8 @@ const rectStyle = (delay: number): SerializedStyles => css`
 `
 
 interface GridLoadingIconProps {
-  animation: boolean
-  size: number
+  animation?: boolean
+  size?: number
 }
 
 export const GridLoadingIcon = memo(

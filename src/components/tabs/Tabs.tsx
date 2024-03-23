@@ -12,8 +12,9 @@ import { type SerializedStyles, css } from '@emotion/react'
 
 const tabsWrapperStyle = css`
   width: 100%;
-
+  position: relative;
   display: flex;
+
   flex-direction: column;
 
   * {
@@ -76,7 +77,7 @@ const tabContentStyle = (isActive: boolean): SerializedStyles => css`
 `
 
 const svgStyle = (height: number): SerializedStyles => css`
-  width: calc(100% - 2rem);
+  width: 100%;
   position: absolute;
   top: ${height}px;
   transition: all 0.2s;
@@ -96,7 +97,7 @@ export const Tabs = memo(({ children }: TabsProps): React.JSX.Element => {
     const resizeObserver = new ResizeObserver(() => {
       if (tabRef.current != null && headerRef.current != null) {
         setTabHeight(
-          tabRef.current.offsetHeight + headerRef.current.offsetHeight + 16
+          tabRef.current.clientHeight + headerRef.current.clientHeight
         )
       }
     })
