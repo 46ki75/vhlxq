@@ -11,6 +11,7 @@ import {
   oneDark,
   oneLight
 } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { TriangleLoadingIcon } from '../icons/TriangleLoadingIcon'
 
 const SyntaxHighlighterAsync = React.lazy(
   async () =>
@@ -25,7 +26,7 @@ const style = css`
   gap: 0;
   justify-content: center;
 
-  box-shadow: 0 0 0.25rem rgba($color: #000000, $alpha: 0.4);
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.2);
   border-radius: 0.25rem;
 
   & *::selection {
@@ -169,7 +170,7 @@ const CodeBlockBase = ({
     <>
       <Global
         styles={css`
-          @import url('https://fonts.googleapis.com/css2?family=Courier Prime');
+          @import url('https://fonts.googleapis.com/css2?family=Courier%20Prime');
         `}
       />
 
@@ -274,6 +275,7 @@ export const FallBack = memo(
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 0.5rem;
 
       div {
         animation-name: ${keyframes`
@@ -288,6 +290,7 @@ export const FallBack = memo(
 
     return (
       <div css={style}>
+        <TriangleLoadingIcon size={32} />
         <div>LOADING</div>
       </div>
     )
