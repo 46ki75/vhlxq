@@ -33,9 +33,9 @@ const typographyContainer = css`
   padding: 0.5rem;
 
   @media (min-width: 768px) {
-    padding: 0 0.5rem;
+    padding: 0.5rem;
     gap: auto;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 `
 
