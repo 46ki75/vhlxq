@@ -2,7 +2,7 @@
 'use client'
 
 import React, { useState, type ReactNode, memo } from 'react'
-import { type SerializedStyles, css, keyframes } from '@emotion/react'
+import { type SerializedStyles, css } from '@emotion/react'
 
 const detailsStyle = css``
 
@@ -43,7 +43,7 @@ const foldButtonStyle = (isOpen: boolean): SerializedStyles => css`
   padding: 0.5rem 0;
 
   opacity: ${isOpen ? 0.7 : 0};
-  transition: all 0.2s;
+  transition: all 0.1s;
 
   display: flex;
   flex-direction: row;
