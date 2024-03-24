@@ -15,12 +15,12 @@ type Story = StoryObj<typeof ImageWithModal>
 
 export const Primary: Story = {
   args: {
-    src: '/ogp.webp'
+    src: 'ogp.webp'
   }
 }
 
 export const Portrait: Story = {
   args: {
-    src: '/sample.webp'
+    src: 'sample.webp'
   }
 }
