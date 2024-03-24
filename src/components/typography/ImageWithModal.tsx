@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom'
 const imageStyle = css`
   width: 100%;
 
+  user-select: none;
   cursor: zoom-in;
 `
 
@@ -25,6 +26,7 @@ const modalStyle = (isModalShown: boolean): SerializedStyles => css`
 
   pointer-events: ${isModalShown ? 'all' : 'none'};
 
+  user-select: none;
   cursor: zoom-out;
 
   display: flex;

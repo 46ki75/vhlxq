@@ -10,10 +10,17 @@ const meta: Meta<typeof ImageWithModal> = {
 }
 
 export default meta
+
 type Story = StoryObj<typeof ImageWithModal>
 
 export const Primary: Story = {
   args: {
     src: '/ogp.webp'
+  }
+}
+
+export const Portrait: Story = {
+  args: {
+    src: '/sample.webp'
   }
 }
