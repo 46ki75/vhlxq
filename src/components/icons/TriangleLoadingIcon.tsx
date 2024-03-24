@@ -5,10 +5,10 @@ import React from 'react'
 import { type SerializedStyles, css, keyframes } from '@emotion/react'
 
 const lineAnimation = keyframes`
-  0% { stroke-dasharray: 0% 240%; };
-  50.1% { stroke-dashoffset: 0%; };
+  0% { stroke-dasharray: 0% 240%; stroke-dashoffset: 120%; };
+  50.1% {  stroke-dasharray: 240% 0%; stroke-dashoffset: 120%; };
   50.2% { stroke-dasharray: 240% 0%; stroke-dashoffset: 240%; };
-  100% { stroke-dasharray: 0% 240%; };
+  100% { stroke-dasharray: 0% 240%; stroke-dashoffset: 120%;  };
 `
 
 const svgStyle = (size: number): SerializedStyles => css`
